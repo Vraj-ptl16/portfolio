@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
@@ -17,15 +18,31 @@ const Home = () => {
     message: ''
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Mock submission - will be replaced with backend
-    toast({
-      title: 'Message sent successfully!',
-      description: 'Thank you for reaching out. I\'ll get back to you soon.',
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    await axios.post("http://localhost:8000/api/status", {
+      name: formData.name,
+      email: formData.email,
+      message: formData.message
     });
-    setFormData({ name: '', email: '', message: '' });
-  };
+
+    toast({
+      title: "Message sent successfully!",
+      description: "Thank you for reaching out. I'll get back to you soon.",
+    });
+
+    setFormData({ name: "", email: "", message: "" });
+  } catch (error) {
+    toast({
+      title: "Something went wrong",
+      description: "Could not send message. Please try again later.",
+      variant: "destructive",
+    });
+  }
+};
+
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -33,6 +50,16 @@ const Home = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+  useEffect(() => {
+  axios
+    .get("http://localhost:8000/api/status")
+    .then(res => {
+      console.log("Backend response:", res.data);
+    })
+    .catch(err => {
+      console.error("Backend error:", err);
+    });
+}, []);
 
   return (
     <div className="home-container">

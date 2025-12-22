@@ -50,7 +50,7 @@ const ProjectNozzle = () => {
           <p className="content-text">
             Water jet cutting technology is critical in precision manufacturing, capable of cutting materials 
             ranging from soft plastics to hardened steel using high-pressure water streams reaching speeds of Mach 3. 
-            This study compares three distinct nozzle geometries—Conical, Bell-shaped, and Annular designs—to evaluate 
+            This study compares three distinct nozzle geometries—Conical, Bell-shaped, and Stepped designs—to evaluate 
             their performance characteristics including exit velocity, pressure distribution, turbulence behavior, and 
             flow uniformity.
           </p>
@@ -100,7 +100,7 @@ const ProjectNozzle = () => {
           <div className="subsection">
             <h3 className="subsection-title">Research Objectives</h3>
             <ul className="content-list">
-              <li>Design and model three nozzle geometries (Conical, Bell-shaped, Annular) in SolidWorks</li>
+              <li>Design and model three nozzle geometries (Conical, Bell-shaped, Stepped) in SolidWorks</li>
               <li>Perform steady-state CFD simulations using ANSYS Fluent with appropriate turbulence models</li>
               <li>Compare velocity profiles, pressure distributions, and eddy viscosity across designs</li>
               <li>Analyze flow characteristics including streamlines, contours, and vector fields</li>
@@ -219,8 +219,8 @@ const ProjectNozzle = () => {
             </div>
 
             <div className="geometry-card">
-              <h3 className="geometry-title">3. Annular Nozzle</h3>
-              <p className="geometry-desc">Central obstruction creates annular flow</p>
+              <h3 className="geometry-title">3. Stepped Nozzle</h3>
+              <p className="geometry-desc">Central obstruction creates stepped flow</p>
               <div className="geometry-details">
                 <div className="detail-section">
                   <span className="detail-heading">Advantages</span>
@@ -337,7 +337,7 @@ const ProjectNozzle = () => {
                 <div className="table-cell">Very Good</div>
               </div>
               <div className="table-row">
-                <div className="table-cell">Annular</div>
+                <div className="table-cell">Stepped</div>
                 <div className="table-cell">60,000 PSI</div>
                 <div className="table-cell">1.650 x 103 m/s</div>
                 <div className="table-cell">Mach 2.25</div>
@@ -363,7 +363,7 @@ const ProjectNozzle = () => {
                 <div className="turbulence-desc">Good flow uniformity, moderate turbulence</div>
               </div>
               <div className="turbulence-item">
-                <div className="turbulence-name">Annular</div>
+                <div className="turbulence-name">Stepped</div>
                 <div className="turbulence-value">6.2 x 10-2 kg/m·s</div>
                 <div className="turbulence-desc">Fair flow uniformity, high turbulence</div>
               </div>
@@ -402,13 +402,13 @@ const ProjectNozzle = () => {
             <div className="finding-item">
               <h4 className="finding-title">Performance Superiority</h4>
               <p className="finding-text">
-                Bell-shaped nozzle outperformed others with 7.3% higher exit velocity than conical and 28.8% higher than annular designs.
+                Bell-shaped nozzle outperformed others with 7.3% higher exit velocity than conical and 28.8% higher than Stepped designs.
               </p>
             </div>
             <div className="finding-item">
               <h4 className="finding-title">Turbulence Reduction</h4>
               <p className="finding-text">
-                Bell-shaped geometry reduced eddy viscosity by 45.8% compared to conical and 58.1% compared to annular.
+                Bell-shaped geometry reduced eddy viscosity by 45.8% compared to conical and 58.1% compared to Stepped.
               </p>
             </div>
             <div className="finding-item">
