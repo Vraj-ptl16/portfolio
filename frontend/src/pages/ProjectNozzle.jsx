@@ -285,10 +285,10 @@ const ProjectNozzle = () => {
               High-quality tetrahedral mesh generated in ANSYS Meshing with:
             </p>
             <ul className="content-list">
-              <li><strong>Boundary Layer Refinement:</strong> 5 inflation layers near walls (y+ < 5)</li>
+              <li><strong>Boundary Layer Refinement:</strong> 5 inflation layers near walls (y+ &lt; 5)</li>
               <li><strong>Throat Region Refinement:</strong> Element size 0.05 mm for accurate high-velocity capture</li>
               <li><strong>Expansion Ratio:</strong> 1.2 for smooth transition from fine to coarse regions</li>
-              <li><strong>Quality Metrics:</strong> Orthogonal quality > 0.3, aspect ratio < 5 for 95% elements</li>
+              <li><strong>Quality Metrics:</strong> Orthogonal quality &gt; 0.3, aspect ratio &lt; 5 for 95% elements</li>
             </ul>
           </div>
         </section>
