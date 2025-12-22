@@ -96,7 +96,7 @@ const ProjectRover = () => {
             <p className="mission-text">
               Design an autonomous rover capable of navigating uneven terrain, detecting buried metallic objects 
               (landmine simulators), mapping hazard locations with GPS coordinates, and transmitting real-time data 
-              to a safe ground control station—all while operating in a 20m × 20m arena within 15 minutes.
+              to a safe ground control station—all while operating in a 20m x 20m arena within 15 minutes.
             </p>
           </div>
         </section>
@@ -200,11 +200,11 @@ const ProjectRover = () => {
             <div className="spec-grid">
               <div className="spec-item">
                 <span className="spec-label">Chassis Material</span>
-                <span className="spec-value">Aluminum Extrusion (20mm × 20mm)</span>
+                <span className="spec-value">Aluminum Extrusion (20mm x 20mm)</span>
               </div>
               <div className="spec-item">
                 <span className="spec-label">Dimensions</span>
-                <span className="spec-value">60 cm (L) × 50 cm (W) × 40 cm (H)</span>
+                <span className="spec-value">60 cm (L) x 50 cm (W) x 40 cm (H)</span>
               </div>
               <div className="spec-item">
                 <span className="spec-label">Drive System</span>
@@ -228,7 +228,7 @@ const ProjectRover = () => {
               </div>
               <div className="spec-item">
                 <span className="spec-label">Obstacle Clearance</span>
-                <span className="spec-value">18-22 cm (1.5× wheel diameter)</span>
+                <span className="spec-value">18-22 cm (1.5x wheel diameter)</span>
               </div>
             </div>
           </div>
@@ -308,7 +308,7 @@ const ProjectRover = () => {
             <div className="strategy-card">
               <h3 className="strategy-title">Grid-Based Systematic Search Pattern</h3>
               <p className="strategy-text">
-                Divide 20m × 20m arena into 1m × 1m grid cells (400 cells total). Generate serpentine 
+                Divide 20m x 20m arena into 1m x 1m grid cells (400 cells total). Generate serpentine 
                 (boustrophedon) path to visit all cells systematically.
               </p>
             </div>
@@ -366,12 +366,12 @@ const ProjectRover = () => {
                 <div className="calc-formula">Total Weight (W) = 8 kg</div>
                 <div className="calc-formula">Weight per wheel = W / 4 = 2 kg = 19.6 N</div>
                 <div className="calc-formula">Wheel radius (r) = 0.06 m</div>
-                <div className="calc-formula">Required Torque per motor = Force × radius</div>
-                <div className="calc-formula">τ = 19.6 N × 0.06 m = 1.176 N·m</div>
+                <div className="calc-formula">Required Torque per motor = Force x radius</div>
+                <div className="calc-formula">tau = 19.6 N x 0.06 m = 1.176 N·m</div>
                 <div className="calc-result">
                   With safety factor of 2.5:
                   <br />
-                  τ_required = 1.176 × 2.5 ≈ 3 N·m (30 kg·cm)
+                  tau_required = 1.176 x 2.5 ≈ 3 N·m (30 kg·cm)
                 </div>
               </div>
             </div>
@@ -380,9 +380,9 @@ const ProjectRover = () => {
               <h3 className="calc-title">Motor RPM & Speed</h3>
               <div className="calc-content">
                 <div className="calc-formula">Desired speed = 1.5 m/s</div>
-                <div className="calc-formula">Wheel circumference = 2πr = 2π × 0.06 = 0.377 m</div>
-                <div className="calc-formula">Wheel RPM = (Speed / Circumference) × 60</div>
-                <div className="calc-formula">RPM = (1.5 / 0.377) × 60 ≈ 239 RPM</div>
+                <div className="calc-formula">Wheel circumference = 2pir = 2pi x 0.06 = 0.377 m</div>
+                <div className="calc-formula">Wheel RPM = (Speed / Circumference) x 60</div>
+                <div className="calc-formula">RPM = (1.5 / 0.377) x 60 ≈ 239 RPM</div>
                 <div className="calc-result">
                   Selected Motor: 300 RPM, 30 kg·cm DC geared motor
                 </div>
@@ -392,7 +392,7 @@ const ProjectRover = () => {
             <div className="calculation-card">
               <h3 className="calc-title">Power Consumption Estimate</h3>
               <div className="calc-content">
-                <div className="calc-formula">4 × DC motors @ 12V, 2A each = 96W</div>
+                <div className="calc-formula">4 x DC motors @ 12V, 2A each = 96W</div>
                 <div className="calc-formula">Electronics (Arduino, sensors) = 15W</div>
                 <div className="calc-formula">Communication modules = 5W</div>
                 <div className="calc-formula">Total Power ≈ 116W</div>

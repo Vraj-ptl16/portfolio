@@ -56,7 +56,7 @@ const ProjectNozzle = () => {
           </p>
           <p className="content-text">
             Operating pressures range from 20,000 to 60,000 PSI, with mass flow rates up to 5.68 kg/s. The analysis 
-            utilizes ANSYS Fluent for steady-state CFD simulations with k-ε turbulence modeling.
+            utilizes ANSYS Fluent for steady-state CFD simulations with k-epsilon turbulence modeling.
           </p>
         </section>
 
@@ -67,7 +67,7 @@ const ProjectNozzle = () => {
             <div className="metric-label">Maximum Operating Pressure</div>
           </div>
           <div className="metric-card">
-            <div className="metric-value">2.125 × 10³ m/s</div>
+            <div className="metric-value">2.125 x 103 m/s</div>
             <div className="metric-label">Peak Exit Velocity (Mach 2.9)</div>
           </div>
           <div className="metric-card">
@@ -151,15 +151,15 @@ const ProjectNozzle = () => {
             <div className="equation-block">
               <div className="equation-item">
                 <div className="equation-title">Bernoulli's Equation (Energy Conservation)</div>
-                <div className="equation-formula">P₁/ρ + V₁²/2 + gz₁ = P₂/ρ + V₂²/2 + gz₂</div>
+                <div className="equation-formula">P1/rho + V12/2 + gz1 = P2/rho + V22/2 + gz2</div>
               </div>
               <div className="equation-item">
                 <div className="equation-title">Continuity Equation (Mass Conservation)</div>
-                <div className="equation-formula">ṁ = ρ₁A₁V₁ = ρ₂A₂V₂ = constant</div>
+                <div className="equation-formula">m-dot = rho1A1V1 = rho2A2V2 = constant</div>
               </div>
               <div className="equation-item">
                 <div className="equation-title">Exit Velocity (Ideal)</div>
-                <div className="equation-formula">V = √(2ΔP/ρ)</div>
+                <div className="equation-formula">V = sqrt(2DeltaP/rho)</div>
               </div>
             </div>
           </div>
@@ -209,7 +209,7 @@ const ProjectNozzle = () => {
                 </div>
                 <div className="detail-section">
                   <span className="detail-heading">Performance</span>
-                  <p className="detail-text">Highest exit velocity: 2.125×10³ m/s</p>
+                  <p className="detail-text">Highest exit velocity: 2.125x103 m/s</p>
                 </div>
                 <div className="detail-section">
                   <span className="detail-heading">Best For</span>
@@ -262,11 +262,11 @@ const ProjectNozzle = () => {
               </div>
               <div className="parameter-item">
                 <span className="param-label">Turbulence Model</span>
-                <span className="param-value">k-ε (Realizable) with standard wall functions</span>
+                <span className="param-value">k-epsilon (Realizable) with standard wall functions</span>
               </div>
               <div className="parameter-item">
                 <span className="param-label">Working Fluid</span>
-                <span className="param-value">Water (incompressible, ρ = 998.2 kg/m³)</span>
+                <span className="param-value">Water (incompressible, rho = 998.2 kg/m3)</span>
               </div>
               <div className="parameter-item">
                 <span className="param-label">Mesh Elements</span>
@@ -274,7 +274,7 @@ const ProjectNozzle = () => {
               </div>
               <div className="parameter-item">
                 <span className="param-label">Convergence Criteria</span>
-                <span className="param-value">Residuals &lt; 1×10⁻⁶</span>
+                <span className="param-value">Residuals &lt; 1x10-6</span>
               </div>
             </div>
           </div>
@@ -311,35 +311,35 @@ const ProjectNozzle = () => {
               <div className="table-row highlight">
                 <div className="table-cell">Bell-shaped</div>
                 <div className="table-cell">60,000 PSI</div>
-                <div className="table-cell">2.125 × 10³ m/s</div>
+                <div className="table-cell">2.125 x 103 m/s</div>
                 <div className="table-cell">Mach 2.90</div>
                 <div className="table-cell">Excellent</div>
               </div>
               <div className="table-row">
                 <div className="table-cell">Bell-shaped</div>
                 <div className="table-cell">40,000 PSI</div>
-                <div className="table-cell">1.760 × 10³ m/s</div>
+                <div className="table-cell">1.760 x 103 m/s</div>
                 <div className="table-cell">Mach 2.40</div>
                 <div className="table-cell">Very Good</div>
               </div>
               <div className="table-row">
                 <div className="table-cell">Bell-shaped</div>
                 <div className="table-cell">20,000 PSI</div>
-                <div className="table-cell">1.250 × 10³ m/s</div>
+                <div className="table-cell">1.250 x 103 m/s</div>
                 <div className="table-cell">Mach 1.71</div>
                 <div className="table-cell">Good</div>
               </div>
               <div className="table-row">
                 <div className="table-cell">Conical</div>
                 <div className="table-cell">60,000 PSI</div>
-                <div className="table-cell">1.980 × 10³ m/s</div>
+                <div className="table-cell">1.980 x 103 m/s</div>
                 <div className="table-cell">Mach 2.70</div>
                 <div className="table-cell">Very Good</div>
               </div>
               <div className="table-row">
                 <div className="table-cell">Annular</div>
                 <div className="table-cell">60,000 PSI</div>
-                <div className="table-cell">1.650 × 10³ m/s</div>
+                <div className="table-cell">1.650 x 103 m/s</div>
                 <div className="table-cell">Mach 2.25</div>
                 <div className="table-cell">Good</div>
               </div>
@@ -354,17 +354,17 @@ const ProjectNozzle = () => {
             <div className="turbulence-comparison">
               <div className="turbulence-item">
                 <div className="turbulence-name">Bell-shaped</div>
-                <div className="turbulence-value">2.6 × 10⁻² kg/m·s</div>
+                <div className="turbulence-value">2.6 x 10-2 kg/m·s</div>
                 <div className="turbulence-desc">Excellent flow uniformity, low turbulence</div>
               </div>
               <div className="turbulence-item">
                 <div className="turbulence-name">Conical</div>
-                <div className="turbulence-value">4.8 × 10⁻² kg/m·s</div>
+                <div className="turbulence-value">4.8 x 10-2 kg/m·s</div>
                 <div className="turbulence-desc">Good flow uniformity, moderate turbulence</div>
               </div>
               <div className="turbulence-item">
                 <div className="turbulence-name">Annular</div>
-                <div className="turbulence-value">6.2 × 10⁻² kg/m·s</div>
+                <div className="turbulence-value">6.2 x 10-2 kg/m·s</div>
                 <div className="turbulence-desc">Fair flow uniformity, high turbulence</div>
               </div>
             </div>
@@ -447,7 +447,7 @@ const ProjectNozzle = () => {
               <p className="conclusion-text">
                 The bell-shaped nozzle is recommended for high-performance water jet cutting applications due to 
                 superior velocity output, minimal turbulence, and uniform flow distribution. It achieves exit velocities 
-                of 2.125×10³ m/s at 60,000 PSI with 94.2% pressure conversion efficiency.
+                of 2.125x103 m/s at 60,000 PSI with 94.2% pressure conversion efficiency.
               </p>
               <p className="conclusion-recommendation">
                 <strong>Recommendation:</strong> Implement bell-shaped nozzle design for precision cutting in aerospace, 

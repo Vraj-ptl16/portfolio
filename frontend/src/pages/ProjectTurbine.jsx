@@ -93,12 +93,12 @@ const ProjectTurbine = () => {
               </p>
               <div className="mode-formula">
                 <div className="formula-label">Power Output Formula:</div>
-                <div className="formula-eq">P = η × ρ × g × Q × H</div>
+                <div className="formula-eq">P = eta x rho x g x Q x H</div>
                 <div className="formula-vars">
-                  <div>η = Efficiency (65-75%)</div>
-                  <div>ρ = Water density (1000 kg/m³)</div>
-                  <div>g = Gravitational acceleration (9.81 m/s²)</div>
-                  <div>Q = Flow rate (m³/s)</div>
+                  <div>eta = Efficiency (65-75%)</div>
+                  <div>rho = Water density (1000 kg/m3)</div>
+                  <div>g = Gravitational acceleration (9.81 m/s2)</div>
+                  <div>Q = Flow rate (m3/s)</div>
                   <div>H = Effective head (m)</div>
                 </div>
               </div>
@@ -112,10 +112,10 @@ const ProjectTurbine = () => {
               </p>
               <div className="mode-formula">
                 <div className="formula-label">Power Output Formula:</div>
-                <div className="formula-eq">P = 0.5 × ρ × A × Cp × v³</div>
+                <div className="formula-eq">P = 0.5 x rho x A x Cp x v3</div>
                 <div className="formula-vars">
-                  <div>ρ = Air density (1.225 kg/m³)</div>
-                  <div>A = Swept area (m²)</div>
+                  <div>rho = Air density (1.225 kg/m3)</div>
+                  <div>A = Swept area (m2)</div>
                   <div>Cp = Power coefficient (0.35-0.45)</div>
                   <div>v = Wind velocity (m/s)</div>
                 </div>
@@ -203,12 +203,12 @@ const ProjectTurbine = () => {
             <h3 className="subsection-title">Archimedean Spiral Equation</h3>
             <div className="equation-block">
               <div className="equation-item">
-                <div className="equation-formula">r = a + b × θ</div>
+                <div className="equation-formula">r = a + b x theta</div>
                 <div className="equation-vars">
-                  <div>r = Radius from center at angle θ</div>
+                  <div>r = Radius from center at angle theta</div>
                   <div>a = Initial radius (0.15 m)</div>
                   <div>b = Pitch constant (0.25 m/turn)</div>
-                  <div>θ = Angle in radians (0 to 8π for 4 turns)</div>
+                  <div>theta = Angle in radians (0 to 8pi for 4 turns)</div>
                 </div>
               </div>
             </div>
@@ -231,7 +231,7 @@ const ProjectTurbine = () => {
               </div>
               <div className="calc-item">
                 <div className="calc-label">Blade Surface Area</div>
-                <div className="calc-value">≈ 2.83 m²</div>
+                <div className="calc-value">≈ 2.83 m2</div>
               </div>
             </div>
           </div>
@@ -251,14 +251,14 @@ const ProjectTurbine = () => {
               <div className="analysis-params">
                 <div className="param-row">
                   <span>Flow rate (Q):</span>
-                  <span>0.5 m³/s</span>
+                  <span>0.5 m3/s</span>
                 </div>
                 <div className="param-row">
                   <span>Effective head (H):</span>
                   <span>2 m</span>
                 </div>
                 <div className="param-row">
-                  <span>Turbine efficiency (η):</span>
+                  <span>Turbine efficiency (eta):</span>
                   <span>70%</span>
                 </div>
               </div>
@@ -286,7 +286,7 @@ const ProjectTurbine = () => {
                 </div>
                 <div className="param-row">
                   <span>Swept area (A):</span>
-                  <span>1.13 m²</span>
+                  <span>1.13 m2</span>
                 </div>
                 <div className="param-row">
                   <span>Power coefficient (Cp):</span>
@@ -298,7 +298,7 @@ const ProjectTurbine = () => {
                 <div className="result-value">≈ 142 W</div>
               </div>
               <div className="analysis-note">
-                Note: Wind power scales with v³. At 16 m/s wind speed, power output reaches approximately 1.14 kW.
+                Note: Wind power scales with v3. At 16 m/s wind speed, power output reaches approximately 1.14 kW.
               </div>
             </div>
           </div>
@@ -393,7 +393,7 @@ const ProjectTurbine = () => {
                 </div>
                 <div className="test-param">
                   <span>Flow Rate:</span>
-                  <span>0.3 m³/s</span>
+                  <span>0.3 m3/s</span>
                 </div>
                 <div className="test-param">
                   <span>Head:</span>
