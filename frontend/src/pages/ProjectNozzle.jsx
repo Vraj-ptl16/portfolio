@@ -274,7 +274,7 @@ const ProjectNozzle = () => {
               </div>
               <div className="parameter-item">
                 <span className="param-label">Convergence Criteria</span>
-                <span className="param-value">Residuals < 1×10⁻⁶</span>
+                <span className="param-value">Residuals &lt; 1×10⁻⁶</span>
               </div>
             </div>
           </div>
