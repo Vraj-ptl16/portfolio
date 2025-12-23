@@ -36,11 +36,27 @@
     transition-delay: 0.1s;
 }
 
+.brand-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.brand-link:hover {
+    transform: scale(1.1);
+}
+
 .brand-text {
     font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     color: var(--color-text-primary, #333);
+    transition: color 0.3s ease;
+}
+
+.brand-link:hover .brand-text {
+    color: var(--color-accent, #5a7d7c);
 }
 
 .sidebar-nav {

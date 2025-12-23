@@ -48,6 +48,33 @@
   align-items: center;
 }
 
+.project-header-content.centered {
+  justify-content: center;
+}
+
+.project-logo-link {
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.project-logo-link:hover {
+  transform: scale(1.1);
+}
+
+.project-logo-text {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.project-logo-link:hover .project-logo-text {
+  color: var(--color-accent);
+}
+
 .back-link {
   display: flex;
   align-items: center;
@@ -1360,6 +1387,7 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+
   .table-header,
   .table-row {
     font-size: 0.8125rem;

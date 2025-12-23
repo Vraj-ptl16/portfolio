@@ -66,7 +66,9 @@ const Home = () => {
       {/* Header */}
       <header className="header">
         <div className="header-content">
-          <div className="logo">VRAJ PATEL</div>
+          <Link to="/" className="logo-link">
+            <div className="logo">VRAJ PATEL</div>
+          </Link>
           <nav className="nav">
             <button onClick={() => scrollToSection('home')} className="nav-link">Home</button>
             <button onClick={() => scrollToSection('about')} className="nav-link">About</button>

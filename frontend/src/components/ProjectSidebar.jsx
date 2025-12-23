@@ -5,11 +5,6 @@ import '../styles/ProjectSidebar.css';
 const ProjectSidebar = () => {
     return (
         <div className="project-sidebar">
-            {/* Logo/Brand Area */}
-            <div className="sidebar-brand">
-                <span className="brand-text">VRAJ PATEL</span>
-            </div>
-
             {/* Navigation Links */}
             <nav className="sidebar-nav">
                 <Link to="/" className="sidebar-link">Home</Link>

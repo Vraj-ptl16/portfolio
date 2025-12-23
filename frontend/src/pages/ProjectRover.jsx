@@ -4,11 +4,13 @@ import { Button } from '../components/ui/button';
 import { ArrowLeft, Mail, Github, Linkedin } from 'lucide-react';
 import '../styles/ProjectDetail.css';
 import ProjectSidebar from '../components/ProjectSidebar';
+import ProjectHeader from '../components/ProjectHeader';
 
 const ProjectRover = () => {
   return (
     <div className="project-detail-container">
       {/* Header */}
+      <ProjectHeader />
       <ProjectSidebar />
 
       {/* Project Hero */}
