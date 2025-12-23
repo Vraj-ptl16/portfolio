@@ -3,20 +3,13 @@ import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { ArrowLeft, Mail, Github, Linkedin } from 'lucide-react';
 import '../styles/ProjectDetail.css';
+import ProjectSidebar from '../components/ProjectSidebar';
 
 const ProjectRover = () => {
   return (
     <div className="project-detail-container">
       {/* Header */}
-      <header className="project-header-nav">
-        <div className="project-header-content">
-          <Link to="/" className="back-link">
-            <ArrowLeft size={20} />
-            <span>Back to Portfolio</span>
-          </Link>
-          <div className="project-logo">VRAJ PATEL</div>
-        </div>
-      </header>
+      <ProjectSidebar />
 
       {/* Project Hero */}
       <section className="project-hero">
@@ -48,10 +41,10 @@ const ProjectRover = () => {
         <section className="content-section">
           <h2 className="content-title">Project Overview</h2>
           <p className="content-text">
-            ANANTA is an autonomous ground vehicle designed for the Aerial Robotics: Minefield Navigation Challenge 
-            at RoboFest Gujarat 5.0. The project addresses the critical humanitarian challenge of landmine detection 
-            and mapping in post-conflict zones. This rover integrates advanced sensor systems, autonomous navigation 
-            algorithms, and robust mechanical design to safely traverse simulated minefields, detect explosive hazards, 
+            ANANTA is an autonomous ground vehicle designed for the Aerial Robotics: Minefield Navigation Challenge
+            at RoboFest Gujarat 5.0. The project addresses the critical humanitarian challenge of landmine detection
+            and mapping in post-conflict zones. This rover integrates advanced sensor systems, autonomous navigation
+            algorithms, and robust mechanical design to safely traverse simulated minefields, detect explosive hazards,
             and generate real-time hazard maps—all without human intervention in the danger zone.
           </p>
         </section>
@@ -80,8 +73,8 @@ const ProjectRover = () => {
         <section className="content-section">
           <h2 className="content-title">The Humanitarian Challenge</h2>
           <p className="content-text">
-            Landmines remain one of the most persistent threats in post-conflict regions worldwide. According to UN 
-            estimates, over 60 million active landmines are buried across 70 countries, causing approximately 15,000-20,000 
+            Landmines remain one of the most persistent threats in post-conflict regions worldwide. According to UN
+            estimates, over 60 million active landmines are buried across 70 countries, causing approximately 15,000-20,000
             casualties annually. Traditional manual demining is:
           </p>
           <ul className="content-list">
@@ -94,8 +87,8 @@ const ProjectRover = () => {
           <div className="mission-statement">
             <h3 className="mission-title">Mission Critical Requirements</h3>
             <p className="mission-text">
-              Design an autonomous rover capable of navigating uneven terrain, detecting buried metallic objects 
-              (landmine simulators), mapping hazard locations with GPS coordinates, and transmitting real-time data 
+              Design an autonomous rover capable of navigating uneven terrain, detecting buried metallic objects
+              (landmine simulators), mapping hazard locations with GPS coordinates, and transmitting real-time data
               to a safe ground control station—all while operating in a 20m x 20m arena within 15 minutes.
             </p>
           </div>
@@ -194,7 +187,7 @@ const ProjectRover = () => {
         {/* Technical Specifications */}
         <section className="content-section">
           <h2 className="content-title">Technical Specifications</h2>
-          
+
           <div className="subsection">
             <h3 className="subsection-title">Mechanical Design</h3>
             <div className="spec-grid">
@@ -303,12 +296,12 @@ const ProjectRover = () => {
         {/* Autonomous Navigation */}
         <section className="content-section">
           <h2 className="content-title">Autonomous Navigation Strategy</h2>
-          
+
           <div className="navigation-strategy">
             <div className="strategy-card">
               <h3 className="strategy-title">Grid-Based Systematic Search Pattern</h3>
               <p className="strategy-text">
-                Divide 20m x 20m arena into 1m x 1m grid cells (400 cells total). Generate serpentine 
+                Divide 20m x 20m arena into 1m x 1m grid cells (400 cells total). Generate serpentine
                 (boustrophedon) path to visit all cells systematically.
               </p>
             </div>
@@ -316,7 +309,7 @@ const ProjectRover = () => {
             <div className="strategy-card">
               <h3 className="strategy-title">GPS Waypoint Navigation</h3>
               <p className="strategy-text">
-                Use GPS coordinates to track position and log hazard locations. Stop and record GPS 
+                Use GPS coordinates to track position and log hazard locations. Stop and record GPS
                 coordinates when metal detector triggers.
               </p>
             </div>
@@ -324,7 +317,7 @@ const ProjectRover = () => {
             <div className="strategy-card">
               <h3 className="strategy-title">Obstacle Detection & Avoidance</h3>
               <p className="strategy-text">
-                Use ultrasonic sensors to detect boundary walls and obstacles. Implement emergency stop 
+                Use ultrasonic sensors to detect boundary walls and obstacles. Implement emergency stop
                 and path correction when obstacles detected.
               </p>
             </div>
@@ -358,7 +351,7 @@ const ProjectRover = () => {
         {/* Calculations */}
         <section className="content-section">
           <h2 className="content-title">Engineering Calculations</h2>
-          
+
           <div className="calculations-grid">
             <div className="calculation-card">
               <h3 className="calc-title">Motor Torque Requirement</h3>
@@ -411,7 +404,7 @@ const ProjectRover = () => {
         {/* Applications */}
         <section className="content-section">
           <h2 className="content-title">Real-World Applications</h2>
-          
+
           <div className="applications-grid">
             <div className="application-card">
               <h4 className="application-title">Humanitarian Demining</h4>
@@ -553,9 +546,9 @@ const ProjectRover = () => {
           <div className="conclusion-content">
             <div className="conclusion-box">
               <p className="conclusion-text">
-                Ideation stage completed. While not selected for finals, the journey provided invaluable 
-                experience in autonomous systems, sensor integration, and collaborative engineering. 
-                The project demonstrated the feasibility of low-cost autonomous demining solutions and 
+                Ideation stage completed. While not selected for finals, the journey provided invaluable
+                experience in autonomous systems, sensor integration, and collaborative engineering.
+                The project demonstrated the feasibility of low-cost autonomous demining solutions and
                 highlighted areas for future development.
               </p>
             </div>

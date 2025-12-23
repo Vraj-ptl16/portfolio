@@ -3,20 +3,13 @@ import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { ArrowLeft, Mail, Github, Linkedin } from 'lucide-react';
 import '../styles/ProjectDetail.css';
+import ProjectSidebar from '../components/ProjectSidebar';
 
 const ProjectTurbine = () => {
   return (
     <div className="project-detail-container">
       {/* Header */}
-      <header className="project-header-nav">
-        <div className="project-header-content">
-          <Link to="/" className="back-link">
-            <ArrowLeft size={20} />
-            <span>Back to Portfolio</span>
-          </Link>
-          <div className="project-logo">VRAJ PATEL</div>
-        </div>
-      </header>
+      <ProjectSidebar />
 
       {/* Project Hero */}
       <section className="project-hero">
@@ -48,14 +41,14 @@ const ProjectTurbine = () => {
         <section className="content-section">
           <h2 className="content-title">Project Overview</h2>
           <p className="content-text">
-            The Archimedean Spiral Turbine is an innovative renewable energy solution designed to harness both 
-            water and wind power using the same geometric principle. Based on the ancient Archimedean screw mechanism, 
-            this dual-mode turbine can generate clean electricity from flowing water or wind energy, making it versatile 
+            The Archimedean Spiral Turbine is an innovative renewable energy solution designed to harness both
+            water and wind power using the same geometric principle. Based on the ancient Archimedean screw mechanism,
+            this dual-mode turbine can generate clean electricity from flowing water or wind energy, making it versatile
             for diverse geographical locations.
           </p>
           <p className="content-text">
-            This project was developed as part of the Design Engineering curriculum at L.D. College of Engineering, 
-            Gujarat Technological University, focusing on sustainable energy systems, mechanical design optimization, 
+            This project was developed as part of the Design Engineering curriculum at L.D. College of Engineering,
+            Gujarat Technological University, focusing on sustainable energy systems, mechanical design optimization,
             and practical renewable energy applications.
           </p>
         </section>
@@ -83,12 +76,12 @@ const ProjectTurbine = () => {
         {/* Dual-Mode Operation */}
         <section className="content-section">
           <h2 className="content-title">Dual-Mode Operation</h2>
-          
+
           <div className="operation-modes">
             <div className="mode-card">
               <h3 className="mode-title">Water Mode Operation</h3>
               <p className="mode-desc">
-                Harnesses kinetic energy from flowing water in rivers, canals, or irrigation channels. 
+                Harnesses kinetic energy from flowing water in rivers, canals, or irrigation channels.
                 Ideal for low-head hydropower applications with minimal environmental impact.
               </p>
               <div className="mode-formula">
@@ -107,7 +100,7 @@ const ProjectTurbine = () => {
             <div className="mode-card">
               <h3 className="mode-title">Wind Mode Operation</h3>
               <p className="mode-desc">
-                Converts wind kinetic energy into rotational motion. Spiral blade geometry captures 
+                Converts wind kinetic energy into rotational motion. Spiral blade geometry captures
                 wind efficiently across varying speeds and directions.
               </p>
               <div className="mode-formula">
@@ -127,7 +120,7 @@ const ProjectTurbine = () => {
         {/* Problem Statement */}
         <section className="content-section">
           <h2 className="content-title">Problem Statement & Objectives</h2>
-          
+
           <div className="subsection">
             <h3 className="subsection-title">The Energy Challenge</h3>
             <p className="content-text">
@@ -198,7 +191,7 @@ const ProjectTurbine = () => {
         {/* Spiral Blade Geometry */}
         <section className="content-section">
           <h2 className="content-title">Spiral Blade Geometry Calculations</h2>
-          
+
           <div className="subsection">
             <h3 className="subsection-title">Archimedean Spiral Equation</h3>
             <div className="equation-block">
@@ -240,7 +233,7 @@ const ProjectTurbine = () => {
         {/* Power Calculations */}
         <section className="content-section">
           <h2 className="content-title">Theoretical Power Output & Efficiency Analysis</h2>
-          
+
           <div className="power-analysis">
             <div className="analysis-card">
               <h3 className="analysis-title">Water Mode Power Calculation</h3>
@@ -332,7 +325,7 @@ const ProjectTurbine = () => {
         {/* Material Selection */}
         <section className="content-section">
           <h2 className="content-title">Structural Analysis & Material Selection</h2>
-          
+
           <div className="subsection">
             <h3 className="subsection-title">Load Analysis</h3>
             <p className="content-text">
@@ -382,7 +375,7 @@ const ProjectTurbine = () => {
         {/* Prototype Testing */}
         <section className="content-section">
           <h2 className="content-title">Testing, Validation & Field Implementation</h2>
-          
+
           <div className="testing-results">
             <div className="test-card">
               <h3 className="test-title">Water Mode Testing</h3>
@@ -447,33 +440,33 @@ const ProjectTurbine = () => {
         {/* Applications */}
         <section className="content-section">
           <h2 className="content-title">Real-World Applications & Sustainability Impact</h2>
-          
+
           <div className="applications-grid">
             <div className="application-card">
               <h4 className="application-title">Rural Electrification</h4>
               <p className="application-desc">
-                Off-grid villages with small rivers or canals can generate consistent power for lighting, 
+                Off-grid villages with small rivers or canals can generate consistent power for lighting,
                 water pumps, and basic electrical needs.
               </p>
             </div>
             <div className="application-card">
               <h4 className="application-title">Irrigation System Integration</h4>
               <p className="application-desc">
-                Utilize existing irrigation infrastructure to generate power while water flows to 
+                Utilize existing irrigation infrastructure to generate power while water flows to
                 agricultural fields—dual-purpose system.
               </p>
             </div>
             <div className="application-card">
               <h4 className="application-title">Coastal & Island Communities</h4>
               <p className="application-desc">
-                Harness consistent coastal winds for wind mode operation, providing reliable renewable 
+                Harness consistent coastal winds for wind mode operation, providing reliable renewable
                 energy to isolated communities.
               </p>
             </div>
             <div className="application-card">
               <h4 className="application-title">Aquaculture & Fish Farms</h4>
               <p className="application-desc">
-                Install in water circulation systems of fish farms to generate power while maintaining 
+                Install in water circulation systems of fish farms to generate power while maintaining
                 water flow for aquatic life.
               </p>
             </div>
@@ -603,14 +596,14 @@ const ProjectTurbine = () => {
           <div className="conclusion-content">
             <div className="conclusion-box">
               <p className="conclusion-text">
-                The Archimedean Spiral Turbine project successfully demonstrated the feasibility of a dual-mode 
-                renewable energy system capable of harnessing both water and wind power. Through detailed design 
-                calculations, CAD modeling, and theoretical performance analysis, the project validated that a 
+                The Archimedean Spiral Turbine project successfully demonstrated the feasibility of a dual-mode
+                renewable energy system capable of harnessing both water and wind power. Through detailed design
+                calculations, CAD modeling, and theoretical performance analysis, the project validated that a
                 single turbine geometry can efficiently operate in two distinct energy environments.
               </p>
               <p className="conclusion-text">
-                This project represents a step toward accessible, decentralized renewable energy solutions that 
-                can empower rural communities, reduce dependence on fossil fuels, and contribute to global 
+                This project represents a step toward accessible, decentralized renewable energy solutions that
+                can empower rural communities, reduce dependence on fossil fuels, and contribute to global
                 sustainability goals.
               </p>
             </div>

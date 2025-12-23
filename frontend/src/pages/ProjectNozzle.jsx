@@ -3,20 +3,13 @@ import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { ArrowLeft, Mail, Github, Linkedin } from 'lucide-react';
 import '../styles/ProjectDetail.css';
+import ProjectSidebar from '../components/ProjectSidebar';
 
 const ProjectNozzle = () => {
   return (
     <div className="project-detail-container">
       {/* Header */}
-      <header className="project-header-nav">
-        <div className="project-header-content">
-          <Link to="/" className="back-link">
-            <ArrowLeft size={20} />
-            <span>Back to Portfolio</span>
-          </Link>
-          <div className="project-logo">VRAJ PATEL</div>
-        </div>
-      </header>
+      <ProjectSidebar />
 
       {/* Project Hero */}
       <section className="project-hero">
@@ -48,14 +41,14 @@ const ProjectNozzle = () => {
         <section className="content-section">
           <h2 className="content-title">Project Overview</h2>
           <p className="content-text">
-            Water jet cutting technology is critical in precision manufacturing, capable of cutting materials 
-            ranging from soft plastics to hardened steel using high-pressure water streams reaching speeds of Mach 3. 
-            This study compares three distinct nozzle geometries—Conical, Bell-shaped, and Stepped designs—to evaluate 
-            their performance characteristics including exit velocity, pressure distribution, turbulence behavior, and 
+            Water jet cutting technology is critical in precision manufacturing, capable of cutting materials
+            ranging from soft plastics to hardened steel using high-pressure water streams reaching speeds of Mach 3.
+            This study compares three distinct nozzle geometries—Conical, Bell-shaped, and Stepped designs—to evaluate
+            their performance characteristics including exit velocity, pressure distribution, turbulence behavior, and
             flow uniformity.
           </p>
           <p className="content-text">
-            Operating pressures range from 20,000 to 60,000 PSI, with mass flow rates up to 5.68 kg/s. The analysis 
+            Operating pressures range from 20,000 to 60,000 PSI, with mass flow rates up to 5.68 kg/s. The analysis
             utilizes ANSYS Fluent for steady-state CFD simulations with k-epsilon turbulence modeling.
           </p>
         </section>
@@ -112,7 +105,7 @@ const ProjectNozzle = () => {
         {/* Design Methodology */}
         <section className="content-section">
           <h2 className="content-title">Design Methodology</h2>
-          
+
           <div className="subsection">
             <h3 className="subsection-title">Nozzle Geometry Specifications</h3>
             <p className="content-text">
@@ -168,7 +161,7 @@ const ProjectNozzle = () => {
         {/* Three Nozzle Geometries */}
         <section className="content-section">
           <h2 className="content-title">Three Nozzle Geometries: Comparative Analysis</h2>
-          
+
           <div className="geometry-grid">
             <div className="geometry-card">
               <h3 className="geometry-title">1. Conical Nozzle</h3>
@@ -248,7 +241,7 @@ const ProjectNozzle = () => {
         {/* CFD Simulation Setup */}
         <section className="content-section">
           <h2 className="content-title">CFD Simulation Setup & Methodology</h2>
-          
+
           <div className="subsection">
             <h3 className="subsection-title">Simulation Parameters</h3>
             <div className="parameter-grid">
@@ -296,7 +289,7 @@ const ProjectNozzle = () => {
         {/* Simulation Results */}
         <section className="content-section">
           <h2 className="content-title">Simulation Results & Performance Analysis</h2>
-          
+
           <div className="subsection">
             <h3 className="subsection-title">Velocity Distribution</h3>
             <p className="content-text">Exit velocity is the primary performance indicator:</p>
@@ -445,12 +438,12 @@ const ProjectNozzle = () => {
             <div className="conclusion-box">
               <h3 className="conclusion-heading">Recommended Design: Bell-Shaped Nozzle</h3>
               <p className="conclusion-text">
-                The bell-shaped nozzle is recommended for high-performance water jet cutting applications due to 
-                superior velocity output, minimal turbulence, and uniform flow distribution. It achieves exit velocities 
+                The bell-shaped nozzle is recommended for high-performance water jet cutting applications due to
+                superior velocity output, minimal turbulence, and uniform flow distribution. It achieves exit velocities
                 of 2.125x103 m/s at 60,000 PSI with 94.2% pressure conversion efficiency.
               </p>
               <p className="conclusion-recommendation">
-                <strong>Recommendation:</strong> Implement bell-shaped nozzle design for precision cutting in aerospace, 
+                <strong>Recommendation:</strong> Implement bell-shaped nozzle design for precision cutting in aerospace,
                 automotive, and advanced manufacturing applications requiring high cutting quality and consistency.
               </p>
             </div>
