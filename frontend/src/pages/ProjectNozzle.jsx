@@ -10,7 +10,7 @@ const ProjectNozzle = () => {
   return (
     <div className="project-detail-container">
       {/* Header */}
-      <ProjectHeader />
+      <ProjectHeader themeColor="rgba(10, 20, 40, 0.85)" />
       <ProjectSidebar />
 
       {/* Project Hero */}

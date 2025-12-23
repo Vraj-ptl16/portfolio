@@ -7,7 +7,7 @@ import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { useToast } from '../hooks/use-toast';
 import { Toaster } from '../components/ui/toaster';
-import { ArrowRight, Mail, Github, Linkedin, ChevronDown } from 'lucide-react';
+import { ArrowRight, Mail, Github, Linkedin, ChevronDown, Settings } from 'lucide-react';
 import '../styles/Home.css';
 
 const Home = () => {
@@ -43,13 +43,13 @@ const Home = () => {
     }
   };
 
-
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_BACKEND_URL}/api/status`)
@@ -82,27 +82,38 @@ const Home = () => {
       {/* Hero Section */}
       <section id="home" className="hero-section">
         <div className="hero-content">
-          <div className="hero-text">
-            <h1 className="hero-title">Let's set ideas in motion.</h1>
-            <p className="hero-subtitle">
-              Simulation-driven mechanical engineering focused on making systems work in the real world.
-            </p>
-            <div className="hero-buttons">
-              <Button
-                className="cta-button"
-                onClick={() => scrollToSection('projects')}
-              >
-                View Work <ArrowRight className="ml-2" size={18} />
-              </Button>
-              <Button
-                variant="outline"
-                className="cta-button-secondary"
-                onClick={() => scrollToSection('contact')}
-              >
-                Get in Touch
-              </Button>
+          <div className="hero-grid">
+            <div className="hero-text">
+              <h1 className="hero-title">Let's set ideas in motion.</h1>
+              <p className="hero-subtitle">
+                Simulation-driven mechanical engineering focused on making systems work in the real world.
+              </p>
+              <div className="hero-buttons">
+                <Button
+                  className="cta-button"
+                  onClick={() => scrollToSection('projects')}
+                >
+                  View Work <ArrowRight className="ml-2" size={18} />
+                </Button>
+                <Button
+                  variant="outline"
+                  className="cta-button-secondary"
+                  onClick={() => scrollToSection('contact')}
+                >
+                  Get in Touch
+                </Button>
+              </div>
+            </div>
+
+            {/* Gear Animation Graphic */}
+            <div className="hero-visual">
+              <div className="gear-system">
+                <Settings className="gear gear-large" strokeWidth={1} />
+                <Settings className="gear gear-small" strokeWidth={1} />
+              </div>
             </div>
           </div>
+
           <div className="hero-scroll" onClick={() => scrollToSection('about')}>
             <ChevronDown size={24} className="scroll-icon" />
           </div>

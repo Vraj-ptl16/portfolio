@@ -3,23 +3,52 @@ import { Link } from 'react-router-dom';
 import '../styles/ProjectSidebar.css';
 
 const ProjectSidebar = () => {
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    const toggleSidebar = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
-        <div className="project-sidebar">
-            {/* Navigation Links */}
-            <nav className="sidebar-nav">
-                <Link to="/" className="sidebar-link">Home</Link>
-                {/* We can use hash links if on home page, but since we are on project pages, 
-            we might want to link back to home with hash or just sections if we have a way. 
-            For now, let's link to Home page with hash state or just sections on Home. 
-            The requirements asked for "Home, About, Skills, Projects, Contact".
-            Since these are on the Home page, we should link to "/#section".
-        */}
-                <Link to="/#about" className="sidebar-link">About</Link>
-                <Link to="/#skills" className="sidebar-link">Skills</Link>
-                <Link to="/#projects" className="sidebar-link">Projects</Link>
-                <Link to="/#contact" className="sidebar-link">Contact</Link>
-            </nav>
-        </div>
+        <>
+            {/* The Sidebar Container */}
+            <div
+                className={`project-sidebar ${isOpen ? 'open' : 'closed'}`}
+                onMouseEnter={() => setIsOpen(true)}
+                onMouseLeave={() => setIsOpen(false)}
+            >
+
+                {/* Toggle Handle (Visible when closed) */}
+                <div
+                    className="sidebar-handle"
+                    onClick={toggleSidebar}
+                    onMouseEnter={() => setIsOpen(true)}
+                >
+                    <div className="handle-pill"></div>
+                </div>
+
+                {/* Content */}
+                <div className="sidebar-content">
+                    <nav className="sidebar-nav">
+                        <Link to="/" className="sidebar-link">
+                            <span className="link-text">Home</span>
+                        </Link>
+                        <Link to="/#about" className="sidebar-link">
+                            <span className="link-text">About</span>
+                        </Link>
+                        <Link to="/#projects" className="sidebar-link">
+                            <span className="link-text">Projects</span>
+                        </Link>
+                        <Link to="/#contact" className="sidebar-link">
+                            <span className="link-text">Contact</span>
+                        </Link>
+                    </nav>
+                </div>
+            </div>
+
+            {/* Overlay to close when clicking outside (mobile friendly) */}
+            {isOpen && <div className="sidebar-overlay" onClick={() => setIsOpen(false)} />}
+        </>
     );
 };
 

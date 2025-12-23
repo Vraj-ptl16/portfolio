@@ -10,7 +10,7 @@ const ProjectTurbine = () => {
   return (
     <div className="project-detail-container">
       {/* Header */}
-      <ProjectHeader />
+      <ProjectHeader themeColor="rgba(10, 40, 20, 0.85)" />
       <ProjectSidebar />
 
       {/* Project Hero */}

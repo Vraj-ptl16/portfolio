@@ -1,107 +1,179 @@
+/* Sidebar Container */
 .project-sidebar {
     position: fixed;
-    left: 0;
     top: 0;
+    left: 0;
     height: 100vh;
-    width: 40px;
-    /* Collapsed width - visible strip */
-    background-color: var(--color-bg-primary, #f5f5f0);
-    /* Match existing theme */
-    overflow: hidden;
-    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1000;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    /* Smooth ease-out */
+}
+
+/* Closed State: Hidden off-screen, but handle visible */
+.project-sidebar.closed {
+    transform: translateX(-100%);
+    /* Move completely off-screen */
+    /* We will use the handle absolute positioning to make it stick out */
+}
+
+.project-sidebar.open {
+    transform: translateX(0);
+}
+
+/* Sidebar Background & Content Area */
+.sidebar-content {
+    height: 100%;
+    width: 260px;
+    background: rgba(10, 10, 12, 0.65);
+    /* Dark semi-transparent */
+    backdrop-filter: blur(16px);
+    /* heavy blur for glass effect */
+    -webkit-backdrop-filter: blur(16px);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
     display: flex;
     flex-direction: column;
-    padding: 2rem 0;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
-    border-right: 1px solid var(--color-border, #e0e0d8);
+    justify-content: center;
+    padding-left: 2rem;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
 }
 
-.project-sidebar:hover {
-    width: 250px;
-    /* Expanded width */
+/* The Handle (Google Phone Pill Style) */
+.sidebar-handle {
+    position: absolute;
+    top: 50%;
+    right: -40px;
+    /* Increased hit area */
+    width: 40px;
+    /* Wider hit area */
+    height: 120px;
+    /* Taller hit area */
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Center the pill in the wider box */
+    z-index: 1001;
+    pointer-events: auto;
 }
 
-.sidebar-brand {
-    margin-bottom: 3rem;
-    padding-left: 3rem;
-    /* Push text so it's hidden when collapsed */
-    white-space: nowrap;
-    opacity: 0;
-    transition: opacity 0.2s ease-in;
+/* The Pill Visual */
+.handle-pill {
+    width: 6px;
+    /* Keep it slim for minimalism */
+    height: 48px;
+    background: rgba(255, 255, 255, 0.75);
+    /* "A bit white" - bright but not harsh */
+    border-radius: 99px;
+    /* Full pill shape */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    /* Soft depth */
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Glassy edge */
 }
 
-.project-sidebar:hover .sidebar-brand {
-    opacity: 1;
-    transition-delay: 0.1s;
+/* Hover effect on the handle area */
+.sidebar-handle:hover .handle-pill {
+    background: #ffffff;
+    /* Pure white on hover */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    /* Modern white glow */
+    height: 56px;
+    width: 6px;
+    /* Keep width consistent for elegance */
+    transform: scale(1.05);
 }
 
-.brand-link {
-    text-decoration: none;
-    color: inherit;
-    display: inline-block;
-    transition: transform 0.3s ease;
+/* Rotate pill when open for a "close" cue? Or just keep it simple */
+.project-sidebar.open .handle-pill {
+    background: rgba(255, 255, 255, 0.1);
+    /* Dim it when open */
 }
 
-.brand-link:hover {
-    transform: scale(1.1);
-}
-
-.brand-text {
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: var(--color-text-primary, #333);
-    transition: color 0.3s ease;
-}
-
-.brand-link:hover .brand-text {
-    color: var(--color-accent, #5a7d7c);
-}
-
+/* Navigation Links */
 .sidebar-nav {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    padding-left: 3rem;
-    width: 100%;
+    gap: 2rem;
 }
 
 .sidebar-link {
     text-decoration: none;
-    font-size: 1rem;
-    color: var(--color-text-secondary, #666);
-    font-weight: 500;
-    white-space: nowrap;
-    opacity: 0;
-    transform: translateX(-10px);
+    font-size: 1.25rem;
+    font-weight: 600;
+    /* Bolder for readability */
+    color: rgba(255, 255, 255, 0.7);
+    /* Brighter default text */
     transition: all 0.3s ease;
-}
-
-.project-sidebar:hover .sidebar-link {
+    display: flex;
+    align-items: center;
+    position: relative;
     opacity: 1;
-    transform: translateX(0);
+    /* Fully visible */
+    letter-spacing: 0.05em;
 }
 
 .sidebar-link:hover {
-    color: var(--color-accent, #5a7d7c);
-    transform: translateX(5px);
+    color: #fff;
+    /* Pure white on hover */
+    transform: translateX(10px);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+    /* Glow effect */
 }
 
-/* Add a visual indicator for the collapsed state */
-.project-sidebar::after {
-    content: "";
+/* Link Text */
+.link-text {
+    position: relative;
+    z-index: 1;
+}
+
+/* Active/Indicator line on hover */
+.sidebar-link::before {
+    content: '';
     position: absolute;
-    left: 50%;
+    left: -15px;
     top: 50%;
-    transform: translate(-50%, -50%);
-    height: 40px;
-    width: 2px;
-    background-color: var(--color-accent, #5a7d7c);
-    border-radius: 2px;
-    transition: opacity 0.3s ease;
+    transform: translateY(-50%) scaleY(0);
+    width: 3px;
+    height: 100%;
+    background: var(--color-accent);
+    transition: transform 0.3s ease;
 }
 
-.project-sidebar:hover::after {
-    opacity: 0;
+.sidebar-link:hover::before {
+    transform: translateY(-50%) scaleY(1);
+}
+
+/* Overlay for clicking outside - Hide on desktop as hover handles it */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 900;
+    backdrop-filter: blur(2px);
+    animation: fadeIn 0.3s ease;
+    display: none;
+    /* Hidden by default on desktop */
+}
+
+/* Show overlay only on mobile/touch devices where hover doesn't exist */
+@media (hover: none) {
+    .sidebar-overlay.mobile-only {
+        display: block;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

@@ -10,7 +10,7 @@ const ProjectRover = () => {
   return (
     <div className="project-detail-container">
       {/* Header */}
-      <ProjectHeader />
+      <ProjectHeader themeColor="rgba(40, 20, 10, 0.85)" />
       <ProjectSidebar />
 
       {/* Project Hero */}
