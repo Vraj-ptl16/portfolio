@@ -489,7 +489,7 @@ const ProjectNozzle = () => {
         <div className="project-footer-content">
           <div className="footer-text">
             <p>© 2025 Vraj Patel. Built with precision and purpose.</p>
-            <p className="footer-subtitle">Mechanical Engineering Student | CFD Specialist</p>
+            <p className="footer-subtitle">Mechanical Engineering Student</p>
           </div>
           <div className="footer-links">
             <a href="mailto:patelvraj1603@gmail.com" className="footer-icon">

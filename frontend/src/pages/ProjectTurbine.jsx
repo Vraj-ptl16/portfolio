@@ -618,7 +618,7 @@ const ProjectTurbine = () => {
         <div className="project-footer-content">
           <div className="footer-text">
             <p>© 2025 Vraj Patel. Built with innovation and purpose.</p>
-            <p className="footer-subtitle">Mechanical Engineering Student | Renewable Energy Designer</p>
+            <p className="footer-subtitle">Mechanical Engineering Student</p>
           </div>
           <div className="footer-links">
             <a href="mailto:patelvraj1603@gmail.com" className="footer-icon">

@@ -106,7 +106,7 @@
     /* Bolder for readability */
     color: rgba(255, 255, 255, 0.7);
     /* Brighter default text */
-    transition: all 0.3s ease;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     display: flex;
     align-items: center;
     position: relative;
@@ -118,15 +118,10 @@
 .sidebar-link:hover {
     color: #fff;
     /* Pure white on hover */
-    transform: translateX(10px);
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
-    /* Glow effect */
-}
-
-/* Link Text */
-.link-text {
-    position: relative;
-    z-index: 1;
+    transform: translateX(4px);
+    /* Controlled push */
+    text-shadow: none;
+    /* No glow */
 }
 
 /* Active/Indicator line on hover */
@@ -139,11 +134,12 @@
     width: 3px;
     height: 100%;
     background: var(--color-accent);
-    transition: transform 0.3s ease;
+    transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .sidebar-link:hover::before {
-    transform: translateY(-50%) scaleY(1);
+    transform: translateY(-50%) scaleY(0.8);
+    /* Slightly less than full height, restrained */
 }
 
 /* Overlay for clicking outside - Hide on desktop as hover handles it */

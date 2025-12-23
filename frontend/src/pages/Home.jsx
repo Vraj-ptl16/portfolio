@@ -43,11 +43,36 @@ const Home = () => {
     }
   };
 
+  /* Custom Smooth Scroll Function */
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (!element) return;
+
+    const targetPosition = element.getBoundingClientRect().top + window.scrollY;
+    const startPosition = window.scrollY;
+    const distance = targetPosition - startPosition;
+    const duration = 1200; // 1.2s for a smooth, readable transition
+    let start = null;
+
+    // Easing function: easeInOutCubic
+    const easeInOutCubic = (t) => {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    };
+
+    const animation = (currentTime) => {
+      if (start === null) start = currentTime;
+      const timeElapsed = currentTime - start;
+      const progress = Math.min(timeElapsed / duration, 1);
+      const ease = easeInOutCubic(progress);
+
+      window.scrollTo(0, startPosition + distance * ease);
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animation);
+      }
+    };
+
+    requestAnimationFrame(animation);
   };
 
   useEffect(() => {
@@ -59,6 +84,118 @@ const Home = () => {
       .catch(err => {
         console.error("Backend error:", err);
       });
+  }, []);
+
+  /* Gear Physics Engine */
+  const heroRef = React.useRef(null);
+  const gearLargeRef = React.useRef(null);
+  const gearSmallRef = React.useRef(null);
+
+  // Physics state refs (we use refs instead of state for 60fps performance without re-renders)
+  const physics = React.useRef({
+    velocity: 0,       // Current rotational velocity
+    targetVelocity: 0, // Target velocity based on mouse movement
+    rotation: 0,       // Current rotation angle of main gear
+    lastMouseX: 0,
+    lastMouseY: 0,
+    lastTime: 0,
+    isHovering: false
+  });
+
+  useEffect(() => {
+    const heroSection = heroRef.current;
+    if (!heroSection) return;
+
+    const handleMouseMove = (e) => {
+      const now = performance.now();
+      const dt = now - physics.current.lastTime;
+
+      // Calculate mouse velocity (pixels per ms)
+      if (dt > 0) {
+        const dx = e.clientX - physics.current.lastMouseX;
+        const dy = e.clientY - physics.current.lastMouseY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        // Map mouse speed to rotational velocity
+        // Sensitivity factor: 0.1 feels engineered/heavy, 0.5 feels light
+        const speed = distance / dt;
+
+        // Direction based on movement relative to center could be cool, 
+        // but user asked for "cursor movement" driving it. 
+        // Let's make it always drive "forward" or "backward" based on simple movement magnitude for stability, 
+        // OR simply add to velocity. Adding magnitude is safer for "activity".
+
+        // Let's try: Velocity = current speed limit.
+        // We set target velocity.
+        physics.current.targetVelocity = Math.min(speed * 2, 8); // Cap max speed
+      }
+
+      physics.current.lastMouseX = e.clientX;
+      physics.current.lastMouseY = e.clientY;
+      physics.current.lastTime = now;
+      physics.current.isHovering = true;
+    };
+
+    const handleMouseEnter = () => {
+      physics.current.isHovering = true;
+      physics.current.lastTime = performance.now();
+    };
+
+    const handleMouseLeave = () => {
+      physics.current.isHovering = false;
+      physics.current.targetVelocity = 0;
+    };
+
+    heroSection.addEventListener('mousemove', handleMouseMove);
+    heroSection.addEventListener('mouseenter', handleMouseEnter);
+    heroSection.addEventListener('mouseleave', handleMouseLeave);
+
+    // Animation Loop
+    let animationFrameId;
+
+    const updatePhysics = () => {
+      // If we aren't hovering, target velocity is 0 (decay to stop)
+      if (!physics.current.isHovering) {
+        physics.current.targetVelocity = 0;
+      } else {
+        // Decay target velocity slightly even while hovering if mouse stops moving
+        // This is tricky: we only update targetVelocity on mouseMove. 
+        // So we need to decay targetVelocity if no mouse move event happened recently?
+        // Actually simplest "physics" feel:
+        // Mouse moves -> imparts impulse (velocity). 
+        // Friction always applies.
+
+        // Better approach for "driven by cursor":
+        // Target velocity defaults to 0 every frame. MouseMove overrides it for that frame.
+        physics.current.targetVelocity *= 0.9;
+      }
+
+      // Smoothly interpolate current velocity towards target (Inertia)
+      // Ease-out / Deceleration
+      physics.current.velocity += (physics.current.targetVelocity - physics.current.velocity) * 0.05;
+
+      // Apply rotation
+      physics.current.rotation += physics.current.velocity;
+
+      // Apply transforms
+      // Gear Ratio: Large (200px) vs Small (120px) => 1.666 ratio
+      // If Large rotates +V, Small rotates -V * 1.666
+      if (gearLargeRef.current && gearSmallRef.current) {
+        gearLargeRef.current.style.transform = `rotate(${physics.current.rotation}deg)`;
+        gearSmallRef.current.style.transform = `rotate(${-physics.current.rotation * 1.666}deg)`;
+      }
+
+      animationFrameId = requestAnimationFrame(updatePhysics);
+    };
+
+    updatePhysics();
+
+    return () => {
+      heroSection.removeEventListener('mousemove', handleMouseMove);
+      heroSection.removeEventListener('mouseenter', handleMouseEnter);
+      heroSection.removeEventListener('mouseleave', handleMouseLeave);
+      cancelAnimationFrame(animationFrameId);
+    };
   }, []);
 
   return (
@@ -80,7 +217,7 @@ const Home = () => {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="hero-section">
+      <section id="home" className="hero-section" ref={heroRef}>
         <div className="hero-content">
           <div className="hero-grid">
             <div className="hero-text">
@@ -108,8 +245,8 @@ const Home = () => {
             {/* Gear Animation Graphic */}
             <div className="hero-visual">
               <div className="gear-system">
-                <Settings className="gear gear-large" strokeWidth={1} />
-                <Settings className="gear gear-small" strokeWidth={1} />
+                <Settings ref={gearLargeRef} className="gear gear-large" strokeWidth={1} />
+                <Settings ref={gearSmallRef} className="gear gear-small" strokeWidth={1} />
               </div>
             </div>
           </div>
@@ -430,7 +567,7 @@ const Home = () => {
         <div className="footer-content">
           <div className="footer-text">
             <p>© 2025 Vraj Patel. Built with precision and purpose.</p>
-            <p className="footer-subtitle">Mechanical Engineering Student | CFD Specialist | Simulation-Driven Design</p>
+            <p className="footer-subtitle">Mechanical Engineering Student</p>
           </div>
           <div className="footer-links">
             <a href="mailto:patelvraj1603@gmail.com" className="footer-icon">
