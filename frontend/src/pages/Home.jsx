@@ -101,7 +101,7 @@ const Home = () => {
               </Button>
             </div>
           </div>
-          <div className="hero-scroll">
+          <div className="hero-scroll" onClick={() => scrollToSection('about')}>
             <ChevronDown size={24} className="scroll-icon" />
           </div>
         </div>
