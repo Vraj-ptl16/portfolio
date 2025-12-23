@@ -19,29 +19,29 @@ const Home = () => {
   });
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    await axios.post("http://localhost:8000/api/status", {
-      name: formData.name,
-      email: formData.email,
-      message: formData.message
-    });
+    try {
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/contact`, {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message
+      });
 
-    toast({
-      title: "Message sent successfully!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
 
-    setFormData({ name: "", email: "", message: "" });
-  } catch (error) {
-    toast({
-      title: "Something went wrong",
-      description: "Could not send message. Please try again later.",
-      variant: "destructive",
-    });
-  }
-};
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      toast({
+        title: "Something went wrong",
+        description: "Could not send message. Please try again later.",
+        variant: "destructive",
+      });
+    }
+  };
 
 
   const scrollToSection = (id) => {
@@ -51,15 +51,15 @@ const Home = () => {
     }
   };
   useEffect(() => {
-  axios
-    .get("http://localhost:8000/api/status")
-    .then(res => {
-      console.log("Backend response:", res.data);
-    })
-    .catch(err => {
-      console.error("Backend error:", err);
-    });
-}, []);
+    axios
+      .get(`${process.env.REACT_APP_BACKEND_URL}/api/status`)
+      .then(res => {
+        console.log("Backend response:", res.data);
+      })
+      .catch(err => {
+        console.error("Backend error:", err);
+      });
+  }, []);
 
   return (
     <div className="home-container">
@@ -86,14 +86,14 @@ const Home = () => {
               Simulation-driven mechanical engineering focused on making systems work in the real world.
             </p>
             <div className="hero-buttons">
-              <Button 
+              <Button
                 className="cta-button"
                 onClick={() => scrollToSection('projects')}
               >
                 View Work <ArrowRight className="ml-2" size={18} />
               </Button>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="cta-button-secondary"
                 onClick={() => scrollToSection('contact')}
               >
@@ -112,8 +112,8 @@ const Home = () => {
         <div className="section-container">
           <div className="about-content">
             <div className="about-image-container">
-              <img 
-                src="https://images.pexels.com/photos/31585388/pexels-photo-31585388.jpeg?auto=compress&cs=tinysrgb&w=800" 
+              <img
+                src="https://images.pexels.com/photos/31585388/pexels-photo-31585388.jpeg?auto=compress&cs=tinysrgb&w=800"
                 alt="Vraj Patel"
                 className="profile-image"
               />
@@ -122,14 +122,14 @@ const Home = () => {
               <h2 className="section-title">About</h2>
               <div className="section-divider"></div>
               <p className="about-paragraph">
-                Pre-final year Mechanical Engineering student at L.D. College of Engineering (GTU), 
-                graduating in 2027. My work centers on analyzing and validating mechanical systems 
+                Pre-final year Mechanical Engineering student at L.D. College of Engineering (GTU),
+                graduating in 2027. My work centers on analyzing and validating mechanical systems
                 through simulation rather than stopping at geometry.
               </p>
               <p className="about-paragraph">
-                I approach engineering as a negotiation between physics, constraints, and practicality, 
-                with strong grounding in core mechanical fundamentals. Specializing in CFD, FEA, and 
-                system-level simulation to understand how mechanisms, autonomous systems, turbines, and 
+                I approach engineering as a negotiation between physics, constraints, and practicality,
+                with strong grounding in core mechanical fundamentals. Specializing in CFD, FEA, and
+                system-level simulation to understand how mechanisms, autonomous systems, turbines, and
                 high-pressure flow systems behave under real-world conditions.
               </p>
               <div className="education-block">
@@ -151,7 +151,7 @@ const Home = () => {
         <div className="section-container">
           <h2 className="section-title">Skills & Expertise</h2>
           <div className="section-divider"></div>
-          
+
           <div className="skills-grid">
             <div className="skill-category-card primary">
               <h3 className="skill-category-title">Simulation & Analysis</h3>
@@ -217,7 +217,7 @@ const Home = () => {
         <div className="section-container">
           <h2 className="section-title">Projects</h2>
           <div className="section-divider"></div>
-          
+
           <div className="projects-grid">
             <Card className="project-card">
               <CardContent className="project-card-content">
@@ -226,8 +226,8 @@ const Home = () => {
                   <h3 className="project-title">High-Pressure Water/Air Jet Cutter Nozzle</h3>
                 </div>
                 <p className="project-description">
-                  Design and simulation of stepped, conical, and bell-shaped nozzles at 20,000–60,000 PSI 
-                  using ANSYS. Optimized geometry for improved jet stability, reduced turbulence, and 
+                  Design and simulation of stepped, conical, and bell-shaped nozzles at 20,000–60,000 PSI
+                  using ANSYS. Optimized geometry for improved jet stability, reduced turbulence, and
                   maximum exit velocity through CFD-driven refinement.
                 </p>
                 <div className="project-details">
@@ -259,8 +259,8 @@ const Home = () => {
                   <h3 className="project-title">Archimedean Spiral Turbine</h3>
                 </div>
                 <p className="project-description">
-                  Dual-mode turbine for water and wind power generation. CAD design, fluid power calculations, 
-                  and installation analysis with prototype testing. Validated performance for decentralized 
+                  Dual-mode turbine for water and wind power generation. CAD design, fluid power calculations,
+                  and installation analysis with prototype testing. Validated performance for decentralized
                   power generation and environmental compatibility.
                 </p>
                 <div className="project-details">
@@ -292,8 +292,8 @@ const Home = () => {
                   <h3 className="project-title">Autonomous 6-Wheel Rover (ANANTA)</h3>
                 </div>
                 <p className="project-description">
-                  Rocker-bogie rover with integrated LiDAR, IMU, GPS, and Raspberry Pi control. 
-                  Performed torque analysis, slope-climb capability studies, and stability validation. 
+                  Rocker-bogie rover with integrated LiDAR, IMU, GPS, and Raspberry Pi control.
+                  Performed torque analysis, slope-climb capability studies, and stability validation.
                   System-level integration for autonomous minefield navigation.
                 </p>
                 <div className="project-details">
@@ -328,12 +328,12 @@ const Home = () => {
           <div className="section-divider"></div>
           <div className="capabilities-content">
             <p className="capabilities-text">
-              Open to collaboration and future work involving CFD/FEA simulation and optimization, 
-              mechanical system analysis, and CAD support. While no formal services are currently offered, 
+              Open to collaboration and future work involving CFD/FEA simulation and optimization,
+              mechanical system analysis, and CAD support. While no formal services are currently offered,
               I'm interested in opportunities to apply simulation-driven engineering to real-world problems.
             </p>
             <p className="capabilities-note">
-              Currently exploring research opportunities and technical collaborations in fluid dynamics, 
+              Currently exploring research opportunities and technical collaborations in fluid dynamics,
               thermal systems, and autonomous mechanical systems.
             </p>
           </div>
@@ -345,7 +345,7 @@ const Home = () => {
         <div className="section-container">
           <h2 className="section-title">Contact</h2>
           <div className="section-divider"></div>
-          
+
           <div className="contact-content">
             <div className="contact-info">
               <p className="contact-intro">
